@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SG FUTA Travel - Cho Thuê Xe Du Lịch Kèm Tài Xế Riêng</title>
+  <meta name="description" content="SG FUTA Travel - Dịch vụ cho thuê xe du lịch 9, 16, 34, 45 chỗ kèm tài xế riêng. Tra cứu bảng giá tự động tuyến Sài Gòn - Vũng Tàu, Phan Thiết, Đà Lạt." />
+  <meta property="og:title" content="SG FUTA Travel - Cho Thuê Xe Du Lịch Kèm Tài Xế Riêng" />
+  <meta property="og:description" content="Dịch vụ cho thuê xe du lịch 9 - 45 chỗ đời mới, tài xế chuyên nghiệp. Hotline: 1900 996646" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Font chữ hiện đại Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       PHẦN 1: THIẾT LẬP BIẾN MÀU SẮC & GIAO DIỆN CHUẨN FLAT DESIGN
+       - Tông màu chủ đạo: Cam (#FF5722 / #F97316), Trắng (#FFFFFF), Xanh lá đậm (#166534 / #14532D)
+       - Thiết kế phẳng hiện đại, tương thích hoàn hảo mọi kích thước màn hình
+       ========================================================================== */
+    :root {
+      --color-primary: #f97316;       /* Màu cam thương hiệu SG FUTA Travel */
+      --color-primary-dark: #ea580c;  /* Màu cam đậm khi hover */
+      --color-primary-light: #fff7ed; /* Màu nền cam nhạt */
+      --color-green: #15803d;         /* Màu xanh lá đậm tạo sự tin cậy */
+      --color-green-dark: #14532d;    /* Màu xanh lá đậm nhấn */
+      --color-green-light: #f0fdf4;   /* Nền xanh lá nhạt */
+      --color-dark: #0f172a;          /* Màu chữ đen xám sang trọng */
+      --color-gray-dark: #334155;     /* Màu chữ phụ */
+      --color-gray: #64748b;          /* Màu ghi xám */
+      --color-gray-light: #f1f5f9;    /* Màu nền khung */
+      --color-white: #ffffff;         /* Trắng tinh */
+      --color-border: #e2e8f0;        /* Viền kẻ */
+      --color-danger: #ef4444;        /* Màu đỏ cảnh báo */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    /* Reset CSS chuẩn */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--color-dark);
+      background-color: #f8fafc;
+    }
+
+    body {
+      line-height: 1.6;
+      background-color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       PHẦN 2: HEADER & THANH ĐIỀU HƯỚNG (NAVIGATION BAR)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--color-white);
+      border-bottom: 2px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    /* Logo thương hiệu SG FUTA Travel */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--color-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: var(--color-white);
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 10px rgba(249, 115, 22, 0.35);
+    }
+
+    .logo-text-futa {
+      color: var(--color-primary);
+      font-weight: 800;
+    }
+
+    .logo-text-travel {
+      color: var(--color-green);
+      font-weight: 800;
+    }
+
+    /* Menu điều hướng */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-gray-dark);
+      padding: 8px 4px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hotline nổi bật bên phải Header */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hotline-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--color-green-light);
+      border: 1.5px solid #86efac;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      color: var(--color-green-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .hotline-pill:hover {
+      background-color: var(--color-green);
+      color: var(--color-white);
+      border-color: var(--color-green);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+    }
+
+    .hotline-pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--color-dark);
+    }
+
+    /* ==========================================================================
+       PHẦN 3: HERO BANNER & GIỚI THIỆU DỊCH VỤ
+       ========================================================================== */
+    .hero-section {
+      background: linear-gradient(135deg, #14532d 0%, #166534 60%, #1e3a2f 100%);
+      color: var(--color-white);
+      padding: 56px 0 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.25) 0%, rgba(249, 115, 22, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #fed7aa;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: #fdba74;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      max-width: 650px;
+      color: #d1fae5;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--color-primary);
+    }
+
+    /* ==========================================================================
+       PHẦN 4: BẢNG TÍNH GIÁ TỰ ĐỘNG (CORE FEATURE - THUẬT TOÁN JS)
+       ========================================================================== */
+    .calculator-section {
+      margin-top: -36px;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 60px;
+    }
+
+    .calculator-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 36px;
+    }
+
+    .calc-header {
+      border-bottom: 2px solid var(--color-gray-light);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .calc-header-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .calc-header-tag {
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-gray-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-label span.req {
+      color: var(--color-primary);
+      margin-left: 2px;
+    }
+
+    .form-select, .form-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-white);
+      color: var(--color-dark);
+      font-weight: 600;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-select:focus, .form-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    }
+
+    /* Option tabs / Chips cho loại ghế */
+    .seat-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .seat-radio-btn {
+      position: relative;
+    }
+
+    .seat-radio-btn input[type="radio"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .seat-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background-color: var(--color-white);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      text-align: center;
+      min-height: 52px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .seat-radio-btn input:checked + .seat-label {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      color: var(--color-primary-dark);
+    }
+
+    .seat-radio-btn input:disabled + .seat-label {
+      opacity: 0.45;
+      cursor: not-allowed;
+      background-color: var(--color-gray-light);
+      border-color: var(--color-border);
+    }
+
+    .seat-sub {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gray);
+      margin-top: 2px;
+    }
+
+    /* Bộ chọn số lượng xe (+ - và nhập số) */
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 46px;
+      height: 48px;
+      background-color: var(--color-gray-light);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: var(--color-dark);
+    }
+
+    .qty-btn:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+    }
+
+    .qty-input {
+      flex: 1;
+      height: 48px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      outline: none;
+    }
+
+    /* CỘT KẾT QUẢ TÍNH GIÁ */
+    .calc-result-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 2px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .result-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 2px dashed #cbd5e1;
+    }
+
+    .result-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+    }
+
+    .result-label {
+      color: var(--color-gray);
+      font-weight: 600;
+    }
+
+    .result-val {
+      font-weight: 700;
+      color: var(--color-dark);
+      text-align: right;
+    }
+
+    .total-price-card {
+      background-color: var(--color-white);
+      border: 2px solid #fdba74;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .total-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-gray-dark);
+      margin-bottom: 4px;
+    }
+
+    .total-number {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.2;
+    }
+
+    .total-hint {
+      font-size: 0.8rem;
+      color: var(--color-green);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .special-notice {
+      background-color: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 0.88rem;
+      color: #991b1b;
+      font-weight: 600;
+      display: none;
+      margin-bottom: 14px;
+    }
+
+    .btn-book-now {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 52px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+      transition: var(--transition);
+    }
+
+    .btn-book-now:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.45);
+    }
+
+    /* ==========================================================================
+       PHẦN 5: BẢNG GIÁ NIÊM YẾT THAM KHẢO NHANH (BẢNG TỔNG HỢP)
+       ========================================================================== */
+    .pricing-table-section {
+      padding: 40px 0 60px 0;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 36px auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-green);
+      background-color: var(--color-green-light);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--color-gray);
+      font-size: 1rem;
+    }
+
+    .table-container {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      overflow-x: auto;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .custom-table th {
+      background-color: #0f172a;
+      color: var(--color-white);
+      font-weight: 700;
+      padding: 16px 20px;
+      white-space: nowrap;
+    }
+
+    .custom-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--color-border);
+      font-weight: 600;
+      color: var(--color-gray-dark);
+    }
+
+    .custom-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .custom-table tr:hover td {
+      background-color: #faf5ff;
+    }
+
+    .table-vehicle-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+    }
+
+    .price-highlight {
+      color: var(--color-primary-dark);
+      font-weight: 800;
+    }
+
+    .badge-sleeper-note {
+      display: inline-block;
+      background-color: #fef3c7;
+      color: #92400e;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       PHẦN 6: DANH MỤC CÁC LOẠI XE (FLEET SHOWCASE) VỚI HÌNH ẢNH USER GỬI
+       ========================================================================== */
+    .fleet-section {
+      padding: 50px 0 70px 0;
+      background-color: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .fleet-card {
+      background: var(--color-white);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+
+    .fleet-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background-color: #f1f5f9;
+      overflow: hidden;
+    }
+
+    .fleet-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .fleet-card:hover .fleet-img {
+      transform: scale(1.05);
+    }
+
+    .fleet-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 800;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .fleet-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .fleet-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin-bottom: 6px;
+    }
+
+    .fleet-sub {
+      font-size: 0.85rem;
+      color: var(--color-green);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .fleet-specs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--color-gray-dark);
+      margin-bottom: 18px;
+    }
+
+    .fleet-specs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-select-fleet {
+      width: 100%;
+      height: 42px;
+      background-color: var(--color-green-light);
+      border: 1.5px solid var(--color-green);
+      color: var(--color-green-dark);
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-select-fleet:hover {
+      background-color: var(--color-green);
+      color: var(--color-white);
+    }
+
+    /* ==========================================================================
+       PHẦN 7: FORM ĐẶT XE TRỰC TUYẾN & CAM KẾT
+       ========================================================================== */
+    .booking-section {
+      padding: 70px 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    }
+
+    .booking-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      padding: 40px;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .col-span-2 {
+      grid-column: span 2;
+    }
+
+    .form-textarea {
+      width: 100%;
+      height: 90px;
+      padding: 12px 16px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      outline: none;
+      resize: vertical;
+      transition: var(--transition);
+    }
+
+    .form-textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    }
+
+    .booking-summary-banner {
+      background-color: #fff7ed;
+      border: 1.5px solid #ffedd5;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-text-highlight {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+    }
+
+    /* ==========================================================================
+       PHẦN 8: FOOTER & THÔNG TIN DOANH NGHIỆP
+       ========================================================================== */
+    .site-footer {
+      background-color: #0b1320;
+      color: #94a3b8;
+      padding: 60px 0 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      color: var(--color-white);
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-title {
+      color: var(--color-white);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .footer-title::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 3px;
+      background-color: var(--color-primary);
+      margin-top: 6px;
+      border-radius: 2px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-primary);
+      padding-left: 4px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-hotline-num {
+      color: #fb923c;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       PHẦN 9: MODAL POPUP XÁC NHẬN ĐƠN HÀNG THÀNH CÔNG
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background-color: var(--color-white);
+      width: 100%;
+      max-width: 540px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      animation: modalFadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--color-green), var(--color-green-dark));
+      color: var(--color-white);
+      padding: 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-success-icon {
+      width: 58px;
+      height: 58px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .ticket-box {
+      background-color: #f8fafc;
+      border: 1.5px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+
+    .ticket-label {
+      color: var(--color-gray);
+      font-weight: 600;
+    }
+
+    .ticket-value {
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+
+    .ticket-code {
+      display: inline-block;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+
+    .modal-btn-close {
+      width: 100%;
+      height: 48px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .modal-btn-close:hover {
+      background: var(--color-primary-dark);
+    }
+
+    /* ==========================================================================
+       PHẦN 10: NÚT GỌI ĐIỆN THOẠI NHANH (FLOATING CALL BUTTON)
+       ========================================================================== */
+    .floating-hotline {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: var(--color-white);
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.45);
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .floating-hotline:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.6);
+      color: var(--color-white);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .calculator-card {
+        grid-template-columns: 1fr;
+      }
+      .fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .header-actions .hotline-pill span.hotline-sub {
+        display: none;
+      }
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-span-2 {
+        grid-column: span 1;
+      }
+      .fleet-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .floating-hotline span.txt {
+        display: none;
+      }
+      .floating-hotline {
+        padding: 14px;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. HEADER & THANH ĐIỀU HƯỚNG
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Logo Thương Hiệu SG FUTA Travel -->
+      <a href="#home" class="brand-logo" aria-label="SG FUTA Travel Trang Chủ">
+        <div class="logo-badge">
+          <!-- SVG Icon Xe Du Lịch Hiện Đại -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+            <circle cx="7" cy="17" r="2" />
+            <path d="M9 17h6" />
+            <circle cx="17" cy="17" r="2" />
+          </svg>
+        </div>
+        <div>
+          <span class="logo-text-futa">SG FUTA</span>
+          <span class="logo-text-travel">Travel</span>
+        </div>
+      </a>
+
+      <!-- Menu Điều Hướng -->
+      <nav aria-label="Menu chính">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+          <li><a href="#calculator" class="nav-link">Tra cứu giá & Đặt xe</a></li>
+          <li><a href="#pricing-table" class="nav-link">Bảng giá niêm yết</a></li>
+          <li><a href="#fleet" class="nav-link">Loại xe du lịch</a></li>
+          <li><a href="#booking" class="nav-link">Liên hệ đặt xe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hotline Nổi Bật Góc Phải -->
+      <div class="header-actions">
+        <a href="tel:1900996646" class="hotline-pill" title="Gọi Hotline SG FUTA Travel">
+          <span class="hotline-pulse-dot"></span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <div>
+            <span style="display:block; line-height:1;">1900 996646</span>
+            <span class="hotline-sub" style="font-size:0.75rem; font-weight:600; opacity:0.85;">028 3636 9551</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. HERO BANNER
+       ========================================================================== -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        Dịch Vụ Thuê Xe Du Lịch Uy Tín Hàng Đầu TP.HCM
+      </div>
+      <h1 class="hero-title">
+        Cho Thuê Xe Kèm Tài Xế Riêng <br>
+        <span>SG FUTA Travel</span> - An Toàn & Chu Đáo
+      </h1>
+      <p class="hero-desc">
+        Hệ thống xe đời mới từ 9, 16, 34 đến 45 chỗ (ghế ngồi & giường nằm cao cấp). Chuyên các tuyến du lịch Sài Gòn đi Vũng Tàu, Phan Thiết, Đà Lạt với mức giá niêm yết rõ ràng, minh bạch và tốt nhất thị trường.
+      </p>
+
+      <div class="hero-features">
+        <div class="hero-feature-item">
+          ✓ Tài xế lịch thiệp, giàu kinh nghiệm
+        </div>
+        <div class="hero-feature-item">
+          ✓ Xe đời mới, điều hòa mát lạnh
+        </div>
+        <div class="hero-feature-item">
+          ✓ Báo giá trọn gói - Không phí ẩn
+        </div>
+        <div class="hero-feature-item">
+          ✓ Hỗ trợ 24/7: 1900 996646
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. BẢNG TRA CỨU & TÍNH GIÁ TỰ ĐỘNG (CORE FEATURE - THUẬT TOÁN JS)
+       ========================================================================== -->
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      <div class="calculator-card">
+        
+        <!-- Cột Bên Trái: Các trường lựa chọn thông số -->
+        <div class="calc-inputs">
+          <div class="calc-header">
+            <h2 class="calc-header-title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              Tính Giá Tự Động
+            </h2>
+            <span class="calc-header-tag">Chuẩn Biểu Phí 2026</span>
+          </div>
+
+          <form id="priceCalcForm" onsubmit="event.preventDefault();">
+            <!-- 1. Chọn Tuyến Đường -->
+            <div class="form-group">
+              <label class="form-label" for="selectRoute">
+                Tuyến đường du lịch <span class="req">*</span>
+              </label>
+              <select id="selectRoute" class="form-select">
+                <option value="sg-vt" selected>Sài Gòn ⇄ Vũng Tàu</option>
+                <option value="sg-pt">Sài Gòn ⇄ Phan Thiết</option>
+                <option value="sg-dl">Sài Gòn ⇄ Đà Lạt</option>
+              </select>
+            </div>
+
+            <!-- 2. Chọn Loại Xe -->
+            <div class="form-group">
+              <label class="form-label" for="selectVehicle">
+                Loại xe du lịch <span class="req">*</span>
+              </label>
+              <select id="selectVehicle" class="form-select">
+                <option value="9">Xe 9 chỗ (Limousine cao cấp)</option>
+                <option value="16" selected>Xe 16 chỗ (Ford Transit / Solati)</option>
+                <option value="34">Xe 34 chỗ (Universe mini / Giường nằm)</option>
+                <option value="45">Xe 45 chỗ (Universe Luxury / Giường nằm)</option>
+              </select>
+            </div>
+
+            <!-- 3. Chọn Loại Ghế (Ghế ngồi vs Giường nằm) -->
+            <div class="form-group">
+              <label class="form-label">
+                Quy cách chỗ ngồi <span class="req">*</span>
+              </label>
+              <div class="seat-options">
+                <div class="seat-radio-btn">
+                  <input type="radio" id="seatChair" name="seatType" value="chair" checked>
+                  <label for="seatChair" class="seat-label">
+                    <span>🪑 Ghế ngồi tiêu chuẩn</span>
+                    <span class="seat-sub">Giá theo biểu phí</span>
+                  </label>
+                </div>
+                <div class="seat-radio-btn">
+                  <input type="radio" id="seatSleeper" name="seatType" value="sleeper">
+                  <label for="seatSleeper" class="seat-label" id="labelSleeper">
+                    <span>🛏️ Giường nằm cao cấp</span>
+                    <span class="seat-sub" id="sleeperNoteText">+2.000.000 đ/xe</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Chọn Thời Gian Thuê -->
+            <div class="form-group">
+              <label class="form-label" for="selectDuration">
+                Thời gian thuê xe <span class="req">*</span>
+              </label>
+              <select id="selectDuration" class="form-select">
+                <option value="day">Trong ngày (Dành cho Vũng Tàu & Phan Thiết)</option>
+                <option value="2d1n" selected>2 ngày 1 đêm (2N1Đ)</option>
+                <option value="3d2n">3 ngày 2 đêm (3N2Đ)</option>
+                <option value="4d3n">4 ngày 3 đêm (4N3Đ - Tuyến Đà Lạt)</option>
+                <option value="other">Khác (Liên hệ Hotline báo giá riêng)</option>
+              </select>
+            </div>
+
+            <!-- 5. Chọn Số Lượng Xe -->
+            <div class="form-group">
+              <label class="form-label" for="inputQuantity">
+                Số lượng xe cần thuê (1 - 10 xe) <span class="req">*</span>
+              </label>
+              <div class="quantity-control">
+                <button type="button" class="qty-btn" id="btnMinusQty" aria-label="Giảm 1 xe">-</button>
+                <input type="number" id="inputQuantity" class="qty-input" value="1" min="1" max="10" readonly>
+                <button type="button" class="qty-btn" id="btnPlusQty" aria-label="Tăng 1 xe">+</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Cột Bên Phải: Hiển thị kết quả tính giá tự động theo thời gian thực -->
+        <div class="calc-result-box">
+          <div>
+            <div class="result-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Chi Tiết Báo Giá Dự Kiến
+            </div>
+
+            <div class="result-rows">
+              <div class="result-row">
+                <span class="result-label">Tuyến đường:</span>
+                <span class="result-val" id="summaryRouteText">Sài Gòn ⇄ Vũng Tàu</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Loại xe:</span>
+                <span class="result-val" id="summaryVehicleText">Xe 16 chỗ (Ghế ngồi)</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Thời gian:</span>
+                <span class="result-val" id="summaryDurationText">2 ngày 1 đêm</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Số lượng xe:</span>
+                <span class="result-val" id="summaryQuantityText">01 xe</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Đơn giá / 1 xe:</span>
+                <span class="result-val price-highlight" id="summaryUnitPriceText">4.500.000 đ</span>
+              </div>
+            </div>
+
+            <!-- Hộp cảnh báo khi chọn option "Khác" hoặc tùy chọn cần liên hệ -->
+            <div id="noticeHotlineBox" class="special-notice">
+              ⚠️ Tuyến/thời gian đã chọn chưa có giá cố định tự động. Xin vui lòng liên hệ Hotline <strong>1900 996646</strong> để được chuyên viên hỗ trợ sắp xếp xe và báo giá ưu đãi!
+            </div>
+
+            <!-- Tổng Tiền Tạm Tính -->
+            <div class="total-price-card">
+              <div class="total-title">Tổng Thành Tiền Tạm Tính</div>
+              <div class="total-number" id="summaryTotalPriceText">4.500.000 đ</div>
+              <div class="total-hint">✓ Đã bao gồm xe đời mới, xăng dầu, lương tài xế</div>
+            </div>
+          </div>
+
+          <!-- Nút hành động đặt xe -->
+          <div>
+            <button type="button" id="btnScrollToBooking" class="btn-book-now">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7.5" r="4"></circle>
+                <polyline points="17 11 19 13 23 9"></polyline>
+              </svg>
+              Đặt Xe Ngay Theo Báo Giá Này
+            </button>
+            <p style="text-align:center; font-size:0.8rem; color:var(--color-gray); margin-top:8px;">
+              Hỗ trợ xác nhận giữ xe nhanh chóng trong 10 phút
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. BẢNG GIÁ NIÊM YẾT CHÍNH THỨC (QUY ĐỊNH HỆ THỐNG)
+       ========================================================================== -->
+  <section id="pricing-table" class="pricing-table-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Bảng Giá Công Khai</span>
+        <h2 class="section-heading">Biểu Phí Thuê Xe Du Lịch Tuyến Cố Định</h2>
+        <p class="section-subtitle">
+          Giá áp dụng cho lịch trình xuất phát từ TP. Hồ Chí Minh (Sài Gòn). Đã bao gồm xe, tài xế riêng và phí xăng dầu.
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Loại Xe</th>
+              <th>Tuyến Đi</th>
+              <th>Trong Ngày</th>
+              <th>2 Ngày 1 Đêm</th>
+              <th>3 Ngày 2 Đêm</th>
+              <th>4 Ngày 3 Đêm</th>
+              <th>Ghi Chú Giường Nằm</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Xe 9 chỗ -->
+            <tr>
+              <td rowspan="3" style="background:#fff7ed; vertical-align:middle;">
+                <div class="table-vehicle-badge">
+                  🚐 Xe 9 chỗ (VIP)
+                </div>
+              </td>
+              <td>Sài Gòn - Vũng Tàu</td>
+              <td class="price-highlight">2.000.000 đ</td>
+              <td class="price-highlight">4.500.000 đ</td>
+              <td class="price-highlight">8.000.000 đ</td>
+              <td>-</td>
+              <td>Chỉ ghế Limousine</td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Phan Thiết</td>
+              <td class="price-highlight">3.000.000 đ</td>
+              <td class="price-highlight">6.000.000 đ</td>
+              <td class="price-highlight">8.000.000 đ</td>
+              <td>-</td>
+              <td>Chỉ ghế Limousine</td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Đà Lạt</td>
+              <td>-</td>
+              <td class="price-highlight">8.000.000 đ</td>
+              <td class="price-highlight">12.000.000 đ</td>
+              <td class="price-highlight">14.000.000 đ</td>
+              <td>Chỉ ghế Limousine</td>
+            </tr>
+
+            <!-- Xe 16 chỗ -->
+            <tr>
+              <td rowspan="3" style="background:#f0fdf4; vertical-align:middle;">
+                <div class="table-vehicle-badge" style="color:var(--color-green-dark);">
+                  🚐 Xe 16 chỗ
+                </div>
+              </td>
+              <td>Sài Gòn - Vũng Tàu</td>
+              <td class="price-highlight">3.000.000 đ</td>
+              <td class="price-highlight">4.500.000 đ</td>
+              <td class="price-highlight">5.000.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Phan Thiết</td>
+              <td class="price-highlight">3.500.000 đ</td>
+              <td class="price-highlight">5.000.000 đ</td>
+              <td class="price-highlight">5.500.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Đà Lạt</td>
+              <td>-</td>
+              <td class="price-highlight">6.000.000 đ</td>
+              <td class="price-highlight">8.000.000 đ</td>
+              <td class="price-highlight">11.000.000 đ</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+
+            <!-- Xe 34 chỗ -->
+            <tr>
+              <td rowspan="3" style="background:#fff7ed; vertical-align:middle;">
+                <div class="table-vehicle-badge">
+                  🚌 Xe 34 chỗ
+                </div>
+              </td>
+              <td>Sài Gòn - Vũng Tàu</td>
+              <td class="price-highlight">5.000.000 đ</td>
+              <td class="price-highlight">8.000.000 đ</td>
+              <td class="price-highlight">9.500.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Phan Thiết</td>
+              <td class="price-highlight">5.500.000 đ</td>
+              <td class="price-highlight">10.000.000 đ</td>
+              <td class="price-highlight">13.500.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Đà Lạt</td>
+              <td>-</td>
+              <td class="price-highlight">Ghế: 10 tr / Giường: 15 tr</td>
+              <td class="price-highlight">Ghế: 13 tr / Giường: 19 tr</td>
+              <td class="price-highlight">Ghế: 18 tr / Giường: 21 tr</td>
+              <td>Biểu phí riêng theo tuyến</td>
+            </tr>
+
+            <!-- Xe 45 chỗ -->
+            <tr>
+              <td rowspan="3" style="background:#f0fdf4; vertical-align:middle;">
+                <div class="table-vehicle-badge" style="color:var(--color-green-dark);">
+                  🚍 Xe 45 chỗ
+                </div>
+              </td>
+              <td>Sài Gòn - Vũng Tàu</td>
+              <td class="price-highlight">5.000.000 đ</td>
+              <td class="price-highlight">7.000.000 đ</td>
+              <td class="price-highlight">9.000.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Phan Thiết</td>
+              <td class="price-highlight">9.000.000 đ</td>
+              <td class="price-highlight">10.000.000 đ</td>
+              <td class="price-highlight">13.000.000 đ</td>
+              <td>-</td>
+              <td><span class="badge-sleeper-note">Giường: +2 tr</span></td>
+            </tr>
+            <tr>
+              <td>Sài Gòn - Đà Lạt</td>
+              <td>-</td>
+              <td class="price-highlight">Ghế: 10 tr / Giường: 13 tr</td>
+              <td class="price-highlight">Ghế: 13 tr / Giường: 15 tr</td>
+              <td class="price-highlight">Ghế: 16 tr / Giường: 19 tr</td>
+              <td>Biểu phí riêng theo tuyến</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. DANH MỤC CÁC LOẠI XE (FLEET SHOWCASE)
+       ========================================================================== -->
+  <section id="fleet" class="fleet-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Đội Xe SG FUTA Travel</span>
+        <h2 class="section-heading">Đội Xe Du Lịch Đời Mới Cao Cấp</h2>
+        <p class="section-subtitle">
+          Toàn bộ phương tiện được kiểm định định kỳ, vệ sinh khử khuẩn trước mỗi chuyến đi, trang bị tiện nghi sang trọng.
+        </p>
+      </div>
+
+      <div class="fleet-grid">
+        
+        <!-- Xe 9 Chỗ -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <span class="fleet-badge">9 Chỗ VIP</span>
+            <img src="/assets/aistudio/z4365964917028_0b1ce57f6c0d61f91a4005262785b904_076a72dc.jpg" 
+                 alt="Xe Limousine 9 chỗ cao cấp SG FUTA Travel" 
+                 class="fleet-img" 
+                 loading="lazy">
+          </div>
+          <div class="fleet-content">
+            <div>
+              <h3 class="fleet-title">Limousine 9 Chỗ VIP</h3>
+              <div class="fleet-sub">Dòng xe thương gia đẳng cấp</div>
+              <ul class="fleet-specs">
+                <li>✓ Ghế massage bọc da cao cấp</li>
+                <li>✓ Cổng sạc USB từng vị trí</li>
+                <li>✓ Màn hình giải trí & TV LED</li>
+                <li>✓ Phù hợp gia đình & đón tiếp đối tác</li>
+              </ul>
+            </div>
+            <button type="button" class="btn-select-fleet" onclick="selectFleetVehicle('9', 'chair')">
+              Chọn Xe 9 Chỗ Này
+            </button>
+          </div>
+        </div>
+
+        <!-- Xe 16 Chỗ -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <span class="fleet-badge">16 Chỗ</span>
+            <img src="/assets/aistudio/minibuskimmai92-1787114665646-1787114666259906017595_d7780992.webp" 
+                 alt="Xe du lịch 16 chỗ Ford Transit Solati SG FUTA Travel" 
+                 class="fleet-img" 
+                 loading="lazy">
+          </div>
+          <div class="fleet-content">
+            <div>
+              <h3 class="fleet-title">Minibus 16 Chỗ</h3>
+              <div class="fleet-sub">Transit / Solati thế hệ mới</div>
+              <ul class="fleet-specs">
+                <li>✓ Khoang hành khách rộng rãi</li>
+                <li>✓ Ghế ngả thoải mái, êm ái</li>
+                <li>✓ Cốp để hành lý rộng tiện lợi</li>
+                <li>✓ Lựa chọn: Ghế ngồi / Giường nằm</li>
+              </ul>
+            </div>
+            <button type="button" class="btn-select-fleet" onclick="selectFleetVehicle('16', 'chair')">
+              Chọn Xe 16 Chỗ Này
+            </button>
+          </div>
+        </div>
+
+        <!-- Xe 34 Chỗ -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <span class="fleet-badge">34 Chỗ</span>
+            <img src="/assets/aistudio/images_21040125.jfif" 
+                 alt="Xe du lịch 34 chỗ giường nằm sang trọng SG FUTA Travel" 
+                 class="fleet-img" 
+                 loading="lazy">
+          </div>
+          <div class="fleet-content">
+            <div>
+              <h3 class="fleet-title">Xe 34 Chỗ / Giường Nằm</h3>
+              <div class="fleet-sub">Universe Mini & Cabin Giường</div>
+              <ul class="fleet-specs">
+                <li>✓ Tùy chọn Ghế ngồi hoặc Giường nằm</li>
+                <li>✓ Hệ thống giảm xóc bầu hơi êm ái</li>
+                <li>✓ Máy lạnh độc lập, đèn đọc sách</li>
+                <li>✓ Tối ưu đoàn tham quan, công ty vừa</li>
+              </ul>
+            </div>
+            <button type="button" class="btn-select-fleet" onclick="selectFleetVehicle('34', 'chair')">
+              Chọn Xe 34 Chỗ Này
+            </button>
+          </div>
+        </div>
+
+        <!-- Xe 45 Chỗ -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <span class="fleet-badge">45 Chỗ Luxury</span>
+            <img src="/assets/aistudio/Cho-thue-xe-45-cho-da-nang-02_da41387a.jpg" 
+                 alt="Xe 45 chỗ Universe cao cấp SG FUTA Travel" 
+                 class="fleet-img" 
+                 loading="lazy">
+          </div>
+          <div class="fleet-content">
+            <div>
+              <h3 class="fleet-title">Universe Luxury 45 Chỗ</h3>
+              <div class="fleet-sub">Chuyên cơ mặt đất cho đoàn lớn</div>
+              <ul class="fleet-specs">
+                <li>✓ Ghế bật cao cấp / Giường nằm VIP</li>
+                <li>✓ Hệ thống âm thanh, karaoke giải trí</li>
+                <li>✓ Hầm hành lý siêu rộng chứa vali lớn</li>
+                <li>✓ Hoàn hảo cho teambuilding, tour lớn</li>
+              </ul>
+            </div>
+            <button type="button" class="btn-select-fleet" onclick="selectFleetVehicle('45', 'chair')">
+              Chọn Xe 45 Chỗ Này
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. FORM ĐẶT XE TRỰC TUYẾN
+       ========================================================================== -->
+  <section id="booking" class="booking-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Đặt Xe Nhanh Chóng</span>
+        <h2 class="section-heading">Phiếu Đặt Xe Du Lịch Trực Tuyến</h2>
+        <p class="section-subtitle">
+          Quý khách vui lòng để lại thông tin, nhân viên điều hành xe SG FUTA Travel sẽ gọi điện xác nhận trong vòng 5-10 phút.
+        </p>
+      </div>
+
+      <div class="booking-wrapper">
+        <!-- Tóm tắt chi phí đang tính -->
+        <div class="booking-summary-banner">
+          <div>
+            <div style="font-size:0.85rem; color:var(--color-gray-dark); font-weight:700;">ĐƠN ĐẶT THEO BẢNG TÍNH GIÁ:</div>
+            <div style="font-weight:700; color:var(--color-dark);" id="bannerRouteDetail">Sài Gòn - Vũng Tàu (Xe 16 chỗ, 2N1Đ, 1 xe)</div>
+          </div>
+          <div class="summary-text-highlight" id="bannerTotalAmount">
+            4.500.000 đ
+          </div>
+        </div>
+
+        <form id="bookingOrderForm" onsubmit="handleBookingSubmit(event);">
+          <div class="booking-grid">
+            
+            <!-- Họ và tên -->
+            <div class="form-group">
+              <label class="form-label" for="custName">
+                Họ và tên khách hàng <span class="req">*</span>
+              </label>
+              <input type="text" id="custName" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+            </div>
+
+            <!-- Số điện thoại -->
+            <div class="form-group">
+              <label class="form-label" for="custPhone">
+                Số điện thoại liên hệ <span class="req">*</span>
+              </label>
+              <input type="tel" id="custPhone" class="form-input" placeholder="Ví dụ: 0909 123 456" pattern="[0-9]{9,11}" title="Vui lòng nhập số điện thoại hợp lệ (9 đến 11 chữ số)" required>
+            </div>
+
+            <!-- Ngày khởi hành -->
+            <div class="form-group">
+              <label class="form-label" for="custDate">
+                Ngày khởi hành dự kiến <span class="req">*</span>
+              </label>
+              <input type="date" id="custDate" class="form-input" required>
+            </div>
+
+            <!-- Điểm đón chi tiết -->
+            <div class="form-group">
+              <label class="form-label" for="custPickup">
+                Địa điểm đón tại Sài Gòn <span class="req">*</span>
+              </label>
+              <input type="text" id="custPickup" class="form-input" placeholder="Số nhà, đường, quận tại TP.HCM" required>
+            </div>
+
+            <!-- Ghi chú thêm -->
+            <div class="form-group col-span-2">
+              <label class="form-label" for="custNotes">
+                Ghi chú thêm (yêu cầu riêng, điểm tham quan, hành lý...)
+              </label>
+              <textarea id="custNotes" class="form-textarea" placeholder="Nhập thêm yêu cầu riêng nếu có (Ví dụ: Cần ghế trẻ em, lịch trình cụ thể...)"></textarea>
+            </div>
+
+            <!-- Nút gửi yêu cầu -->
+            <div class="col-span-2" style="margin-top:10px;">
+              <button type="submit" class="btn-book-now" style="font-size:1.1rem;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 2L11 13"></path>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Gửi Yêu Cầu Đặt Xe Ngay
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. FOOTER THÔNG TIN DOANH NGHIỆP
+       ========================================================================== -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Cột 1: Giới thiệu thương hiệu SG FUTA Travel -->
+        <div>
+          <div class="footer-brand">
+            <span style="color:var(--color-primary)">SG FUTA</span>
+            <span style="color:#22c55e">Travel</span>
+          </div>
+          <p style="margin-bottom:16px; line-height:1.7;">
+            SG FUTA Travel - Đơn vị hàng đầu chuyên cung cấp dịch vụ cho thuê xe du lịch 9 - 45 chỗ kèm tài xế riêng. Chúng tôi cam kết chất lượng xe đời mới, tài xế văn minh, phục vụ tận tâm trên từng cung đường.
+          </p>
+          <div style="font-size:0.85rem; color:#64748b;">
+            Giấy phép đăng ký kinh doanh vận tải số: 0317899201 do Sở GTVT TP.HCM cấp.
+          </div>
+        </div>
+
+        <!-- Cột 2: Tuyến đường chính -->
+        <div>
+          <h4 class="footer-title">Tuyến Xe Nổi Bật</h4>
+          <ul class="footer-links">
+            <li><a href="#calculator" onclick="quickSelectRoute('sg-vt')">Sài Gòn đi Vũng Tàu</a></li>
+            <li><a href="#calculator" onclick="quickSelectRoute('sg-pt')">Sài Gòn đi Phan Thiết</a></li>
+            <li><a href="#calculator" onclick="quickSelectRoute('sg-dl')">Sài Gòn đi Đà Lạt</a></li>
+            <li><a href="#pricing-table">Bảng giá xe 9 chỗ VIP</a></li>
+            <li><a href="#pricing-table">Bảng giá xe 16 & 34 chỗ</a></li>
+            <li><a href="#pricing-table">Bảng giá xe 45 chỗ Universe</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Cam kết dịch vụ -->
+        <div>
+          <h4 class="footer-title">Cam Kết Dịch Vụ</h4>
+          <ul class="footer-links">
+            <li>✓ Tài xế kinh nghiệm > 5 năm</li>
+            <li>✓ Không tăng giá vô cớ</li>
+            <li>✓ Xe sạch sẽ, không mùi</li>
+            <li>✓ Đón trả đúng giờ, đúng điểm</li>
+            <li>✓ Hợp đồng minh bạch, rõ ràng</li>
+            <li>✓ Bảo hiểm hành khách 100%</li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ -->
+        <div>
+          <h4 class="footer-title">Tổng Đài Hỗ Trợ 24/7</h4>
+          <div class="footer-contact-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div>
+              <div style="font-size:0.8rem; color:#94a3b8;">Hotline Đặt Xe:</div>
+              <div class="footer-hotline-num">1900 996646</div>
+              <div style="font-weight:700; color:#e2e8f0;">028 3636 9551</div>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div>
+              <div style="font-size:0.8rem; color:#94a3b8;">Văn phòng điều hành:</div>
+              <div style="color:#cbd5e1; font-weight:600;">Số 395 Kinh Dương Vương, P. An Lạc, Q. Bình Tân, TP. Hồ Chí Minh</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bản quyền -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>SG FUTA Travel</strong>. Tất cả quyền được bảo lưu. Dịch vụ cho thuê xe du lịch kèm tài xế chuyên nghiệp.
+        </div>
+        <div>
+          Hệ thống tính giá tự động & Quản lý đặt xe trực tuyến
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       8. MODAL XÁC NHẬN ĐƠN HÀNG THÀNH CÔNG
+       ========================================================================== -->
+  <div id="bookingModal" class="modal-overlay" onclick="handleBackdropClick(event)">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-success-icon">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 id="modalTitle" class="modal-title">Gửi Yêu Cầu Đặt Xe Thành Công!</h3>
+        <p style="font-size:0.9rem; opacity:0.95; margin-top:4px;">Cảm ơn quý khách đã tin chọn SG FUTA Travel</p>
+      </div>
+
+      <div class="modal-body">
+        <div class="ticket-box">
+          <div class="ticket-row">
+            <span class="ticket-label">Mã đặt xe:</span>
+            <span class="ticket-code" id="modalCode">FUTA-84920</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Khách hàng:</span>
+            <span class="ticket-value" id="modalName">Nguyễn Văn An</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Số điện thoại:</span>
+            <span class="ticket-value" id="modalPhone">0909 123 456</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Tuyến đường:</span>
+            <span class="ticket-value" id="modalRoute">Sài Gòn ⇄ Vũng Tàu</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Loại xe & ghế:</span>
+            <span class="ticket-value" id="modalVehicle">Xe 16 chỗ (Ghế ngồi)</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Thời gian thuê:</span>
+            <span class="ticket-value" id="modalDuration">2 ngày 1 đêm</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Số lượng xe:</span>
+            <span class="ticket-value" id="modalQty">01 xe</span>
+          </div>
+          <div class="ticket-row">
+            <span class="ticket-label">Ngày khởi hành:</span>
+            <span class="ticket-value" id="modalDate">2026-10-25</span>
+          </div>
+          <div class="ticket-row" style="margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1;">
+            <span class="ticket-label" style="font-size:1rem; color:var(--color-dark); font-weight:800;">Tổng tiền dự kiến:</span>
+            <span class="price-highlight" style="font-size:1.25rem;" id="modalPrice">4.500.000 đ</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.88rem; color:var(--color-gray-dark); margin-bottom:20px; line-height:1.5;">
+          📞 Bộ phận chăm sóc khách hàng của <strong>SG FUTA Travel</strong> sẽ liên hệ với quý khách trong ít phút qua số điện thoại trên để xác nhận điểm đón chi tiết và điều phối tài xế.
+        </p>
+
+        <button type="button" class="modal-btn-close" onclick="closeBookingModal()">
+          Đóng & Hoàn Tất
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       9. NÚT GỌI HOTLINE NHANH NỔI (FLOATING CALL BUTTON)
+       ========================================================================== -->
+  <a href="tel:1900996646" class="floating-hotline" title="Gọi ngay Hotline 1900 996646">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span class="txt">Hotline: 1900 996646</span>
+  </a>
+
+  <!-- ==========================================================================
+       PHẦN 11: MÃ JAVASCRIPT THUẦN (VANILLA JAVASCRIPT)
+       - Xử lý tương tác thời gian thực
+       - Logic bảng tính giá tự động chính xác 100% theo yêu cầu đề bài
+       - Chú thích chi tiết từng biến và thuật toán phục vụ giải trình môn Tin Học
+       ========================================================================== -->
+  <script>
+    /**
+     * ============================================================================
+     * CHƯƠNG TRÌNH TÍNH GIÁ THUÊ XE TỰ ĐỘNG - SG FUTA TRAVEL
+     * Môn: Tin học / Ứng dụng Web
+     * Đơn vị tiền tệ: Việt Nam Đồng (VNĐ)
+     * ============================================================================
+     */
+
+    // 1. CÁC BIẾN TRUY XUẤT PHẦN TỬ DOM TRÊN GIAO DIỆN
+    const selectRoute = document.getElementById('selectRoute');         // Lựa chọn tuyến đường
+    const selectVehicle = document.getElementById('selectVehicle');     // Lựa chọn loại xe
+    const seatChair = document.getElementById('seatChair');             // Radio nút ghế ngồi
+    const seatSleeper = document.getElementById('seatSleeper');         // Radio nút giường nằm
+    const sleeperNoteText = document.getElementById('sleeperNoteText'); // Chú thích giường nằm
+    const selectDuration = document.getElementById('selectDuration');   // Lựa chọn thời gian thuê
+    const inputQuantity = document.getElementById('inputQuantity');     // Số lượng xe
+    const btnMinusQty = document.getElementById('btnMinusQty');         // Nút giảm số lượng
+    const btnPlusQty = document.getElementById('btnPlusQty');           // Nút tăng số lượng
+
+    // Các phần tử hiển thị tóm tắt và thành tiền
+    const summaryRouteText = document.getElementById('summaryRouteText');
+    const summaryVehicleText = document.getElementById('summaryVehicleText');
+    const summaryDurationText = document.getElementById('summaryDurationText');
+    const summaryQuantityText = document.getElementById('summaryQuantityText');
+    const summaryUnitPriceText = document.getElementById('summaryUnitPriceText');
+    const summaryTotalPriceText = document.getElementById('summaryTotalPriceText');
+    const noticeHotlineBox = document.getElementById('noticeHotlineBox');
+
+    // Banner tóm tắt tại form đặt xe
+    const bannerRouteDetail = document.getElementById('bannerRouteDetail');
+    const bannerTotalAmount = document.getElementById('bannerTotalAmount');
+
+    // Modal popup
+    const bookingModal = document.getElementById('bookingModal');
+    const custDateInput = document.getElementById('custDate');
+
+    // Biến lưu trữ kết quả tính giá gần nhất để dùng cho đơn đặt xe
+    let currentCalculation = {
+      isValid: true,
+      unitPrice: 4500000,
+      totalPrice: 4500000,
+      routeName: 'Sài Gòn ⇄ Vũng Tàu',
+      vehicleName: 'Xe 16 chỗ',
+      seatName: 'Ghế ngồi',
+      durationName: '2 ngày 1 đêm',
+      quantity: 1
+    };
+
+    /**
+     * HÀM ĐỊNH DẠNG TIỀN TỆ VIỆT NAM (VNĐ)
+     * Ví dụ: 4500000 -> "4.500.000 đ"
+     * Giải thích cho môn Tin: Sử dụng toLocaleString('vi-VN') để phân tách dấu chấm hàng nghìn
+     */
+    function formatCurrencyVND(amount) {
+      if (typeof amount !== 'number' || isNaN(amount)) return '0 đ';
+      return amount.toLocaleString('vi-VN') + ' đ';
+    }
+
+    /**
+     * HÀM TÍNH TOÁN BÁNG GIÁ TỰ ĐỘNG (CORE LOGIC)
+     * Nhận vào:
+     * - route: mã tuyến ('sg-vt', 'sg-pt', 'sg-dl')
+     * - vehicle: mã loại xe ('9', '16', '34', '45')
+     * - seat: mã loại chỗ ('chair' hoặc 'sleeper')
+     * - duration: mã thời gian ('day', '2d1n', '3d2n', '4d3n', 'other')
+     * - quantity: số lượng xe (1 đến 10)
+     */
+    function calculatePrice(route, vehicle, seat, duration, quantity) {
+      // Trường hợp 1: Người dùng chọn thời gian "Khác" hoặc số lượng xe ngoài khoảng 1 - 10
+      if (duration === 'other' || !quantity || quantity < 1 || quantity > 10) {
+        return {
+          isValid: false,
+          unitPrice: 0,
+          totalPrice: 0,
+          message: 'Vui lòng liên hệ Hotline: 1900 996646'
+        };
+      }
+
+      // Trường hợp 2: Xe 9 chỗ chỉ có bản ghế ngồi, không có bản giường nằm
+      if (vehicle === '9' && seat === 'sleeper') {
+        return {
+          isValid: false,
+          unitPrice: 0,
+          totalPrice: 0,
+          message: 'Xe 9 chỗ chỉ có bản Ghế ngồi Limousine. Quý khách vui lòng chọn Ghế ngồi.'
+        };
+      }
+
+      let basePrice = null; // Đơn giá 1 xe cơ sở (VNĐ)
+
+      // =========================================================================
+      // CẤU TRÚC ĐIỀU KIỆN SWITCH-CASE PHÂN TÍCH GIÁ THEO XE VÀ TUYẾN ĐƯỜNG
+      // =========================================================================
+      switch (vehicle) {
+        // --- 1. XE 9 CHỖ (CHỈ CÓ GHẾ NGỒI) ---
+        case '9':
+          if (route === 'sg-vt') {
+            // Sài Gòn - Vũng Tàu
+            if (duration === 'day') basePrice = 2000000;       // Trong ngày: 2 tr
+            else if (duration === '2d1n') basePrice = 4500000; // 2N1Đ: 4.5 tr
+            else if (duration === '3d2n') basePrice = 8000000; // 3N2Đ: 8 tr
+          } else if (route === 'sg-pt') {
+            // Sài Gòn - Phan Thiết
+            if (duration === 'day') basePrice = 3000000;       // Trong ngày: 3 tr
+            else if (duration === '2d1n') basePrice = 6000000; // 2N1Đ: 6 tr
+            else if (duration === '3d2n') basePrice = 8000000; // 3N2Đ: 8 tr
+          } else if (route === 'sg-dl') {
+            // Sài Gòn - Đà Lạt
+            if (duration === '2d1n') basePrice = 8000000;      // 2N1Đ: 8 tr
+            else if (duration === '3d2n') basePrice = 12000000;// 3N2Đ: 12 tr
+            else if (duration === '4d3n') basePrice = 14000000;// 4N3Đ: 14 tr
+          }
+          break;
+
+        // --- 2. XE 16 CHỖ ---
+        case '16':
+          if (route === 'sg-vt') {
+            // Sài Gòn - Vũng Tàu: Trong ngày (3 tr), 2N1Đ (4.5 tr), 3N2Đ (5 tr)
+            if (duration === 'day') basePrice = 3000000;
+            else if (duration === '2d1n') basePrice = 4500000;
+            else if (duration === '3d2n') basePrice = 5000000;
+          } else if (route === 'sg-pt') {
+            // Sài Gòn - Phan Thiết: Trong ngày (3.5 tr), 2N1Đ (5 tr), 3N2Đ (5.5 tr)
+            if (duration === 'day') basePrice = 3500000;
+            else if (duration === '2d1n') basePrice = 5000000;
+            else if (duration === '3d2n') basePrice = 5500000;
+          } else if (route === 'sg-dl') {
+            // Sài Gòn - Đà Lạt: 2N1Đ (6 tr), 3N2Đ (8 tr), 4N3Đ (11 tr)
+            if (duration === '2d1n') basePrice = 6000000;
+            else if (duration === '3d2n') basePrice = 8000000;
+            else if (duration === '4d3n') basePrice = 11000000;
+          }
+
+          // Quy tắc: Nếu khách chọn "Giường nằm", cộng thêm 2.000.000 VNĐ vào giá tương ứng
+          if (basePrice !== null && seat === 'sleeper') {
+            basePrice += 2000000;
+          }
+          break;
+
+        // --- 3. XE 34 CHỖ ---
+        case '34':
+          if (route === 'sg-vt') {
+            // Sài Gòn - Vũng Tàu: Trong ngày (5 tr), 2N1Đ (8 tr), 3N2Đ (9.5 tr) (Giường nằm: +2 tr)
+            if (duration === 'day') basePrice = 5000000;
+            else if (duration === '2d1n') basePrice = 8000000;
+            else if (duration === '3d2n') basePrice = 9500000;
+
+            if (basePrice !== null && seat === 'sleeper') {
+              basePrice += 2000000;
+            }
+          } else if (route === 'sg-pt') {
+            // Sài Gòn - Phan Thiết: Trong ngày (5.5 tr), 2N1Đ (10 tr), 3N2Đ (13.5 tr) (Giường nằm: +2 tr)
+            if (duration === 'day') basePrice = 5500000;
+            else if (duration === '2d1n') basePrice = 10000000;
+            else if (duration === '3d2n') basePrice = 13500000;
+
+            if (basePrice !== null && seat === 'sleeper') {
+              basePrice += 2000000;
+            }
+          } else if (route === 'sg-dl') {
+            // Sài Gòn - Đà Lạt: Bảng giá theo phân khúc riêng
+            // 2N1Đ: Ghế (10 tr) / Giường (15 tr)
+            // 3N2Đ: Ghế (13 tr) / Giường (19 tr)
+            // 4N3Đ: Ghế (18 tr) / Giường (21 tr)
+            if (duration === '2d1n') {
+              basePrice = seat === 'sleeper' ? 15000000 : 10000000;
+            } else if (duration === '3d2n') {
+              basePrice = seat === 'sleeper' ? 19000000 : 13000000;
+            } else if (duration === '4d3n') {
+              basePrice = seat === 'sleeper' ? 21000000 : 18000000;
+            }
+          }
+          break;
+
+        // --- 4. XE 45 CHỖ (HOẶC 54 CHỖ) ---
+        case '45':
+          if (route === 'sg-vt') {
+            // Sài Gòn - Vũng Tàu: Trong ngày (5 tr), 2N1Đ (7 tr), 3N2Đ (9 tr) (Giường nằm: +2 tr)
+            if (duration === 'day') basePrice = 5000000;
+            else if (duration === '2d1n') basePrice = 7000000;
+            else if (duration === '3d2n') basePrice = 9000000;
+
+            if (basePrice !== null && seat === 'sleeper') {
+              basePrice += 2000000;
+            }
+          } else if (route === 'sg-pt') {
+            // Sài Gòn - Phan Thiết: Trong ngày (9 tr), 2N1Đ (10 tr), 3N2Đ (13 tr) (Giường nằm: +2 tr)
+            if (duration === 'day') basePrice = 9000000;
+            else if (duration === '2d1n') basePrice = 10000000;
+            else if (duration === '3d2n') basePrice = 13000000;
+
+            if (basePrice !== null && seat === 'sleeper') {
+              basePrice += 2000000;
+            }
+          } else if (route === 'sg-dl') {
+            // Sài Gòn - Đà Lạt: Bảng giá ghế / giường
+            // 2N1Đ: Ghế (10 tr) / Giường (13 tr)
+            // 3N2Đ: Ghế (13 tr) / Giường (15 tr)
+            // 4N3Đ: Ghế (16 tr) / Giường (19 tr)
+            if (duration === '2d1n') {
+              basePrice = seat === 'sleeper' ? 13000000 : 10000000;
+            } else if (duration === '3d2n') {
+              basePrice = seat === 'sleeper' ? 15000000 : 13000000;
+            } else if (duration === '4d3n') {
+              basePrice = seat === 'sleeper' ? 19000000 : 16000000;
+            }
+          }
+          break;
+
+        default:
+          basePrice = null;
+      }
+
+      // Kiểm tra nếu lựa chọn không có giá cố định (ví dụ: Đà Lạt đi trong ngày)
+      if (basePrice === null) {
+        return {
+          isValid: false,
+          unitPrice: 0,
+          totalPrice: 0,
+          message: 'Liên Hệ Với Chúng Tôi qua Hotline: 1900 996646'
+        };
+      }
+
+      // THÀNH TIỀN = Đơn giá xe x Số lượng xe
+      const unitPrice = basePrice;
+      const totalPrice = unitPrice * quantity;
+
+      return {
+        isValid: true,
+        unitPrice: unitPrice,
+        totalPrice: totalPrice,
+        message: ''
+      };
+    }
+
+    /**
+     * HÀM CẬP NHẬT GIAO DIỆN KHI NGƯỜI DÙNG THAY ĐỔI LỰA CHỌN
+     * Lắng nghe sự kiện 'change' và 'input' trên các trường
+     */
+    function updatePricingDisplay() {
+      const route = selectRoute.value;
+      const vehicle = selectVehicle.value;
+      const seat = document.querySelector('input[name="seatType"]:checked').value;
+      const duration = selectDuration.value;
+      const quantity = parseInt(inputQuantity.value, 10) || 1;
+
+      // Xử lý logic khóa tùy chọn: Xe 9 chỗ không cho chọn giường nằm
+      if (vehicle === '9') {
+        seatSleeper.disabled = true;
+        sleeperNoteText.textContent = 'Không áp dụng xe 9 chỗ';
+        if (seat === 'sleeper') {
+          seatChair.checked = true;
+        }
+      } else {
+        seatSleeper.disabled = false;
+        if (route === 'sg-dl' && (vehicle === '34' || vehicle === '45')) {
+          sleeperNoteText.textContent = 'Theo biểu phí Đà Lạt';
+        } else {
+          sleeperNoteText.textContent = '+2.000.000 đ/xe';
+        }
+      }
+
+      // Lấy tên nhãn hiển thị cho giao diện
+      const routeText = selectRoute.options[selectRoute.selectedIndex].text;
+      const vehicleText = selectVehicle.options[selectVehicle.selectedIndex].text;
+      const seatText = (document.querySelector('input[name="seatType"]:checked').value === 'sleeper') ? 'Giường nằm' : 'Ghế ngồi';
+      const durationText = selectDuration.options[selectDuration.selectedIndex].text;
+
+      // Gọi hàm tính giá cốt lõi
+      const currentSeat = document.querySelector('input[name="seatType"]:checked').value;
+      const result = calculatePrice(route, vehicle, currentSeat, duration, quantity);
+
+      // Cập nhật các trường hiển thị tóm tắt
+      summaryRouteText.textContent = routeText;
+      summaryVehicleText.textContent = `${vehicleText.split('(')[0].trim()} (${seatText})`;
+      summaryDurationText.textContent = durationText.split('(')[0].trim();
+      summaryQuantityText.textContent = `${quantity < 10 ? '0' + quantity : quantity} xe`;
+
+      if (result.isValid) {
+        noticeHotlineBox.style.display = 'none';
+        summaryUnitPriceText.textContent = formatCurrencyVND(result.unitPrice);
+        summaryTotalPriceText.textContent = formatCurrencyVND(result.totalPrice);
+        summaryTotalPriceText.style.fontSize = '1.85rem';
+        summaryTotalPriceText.style.color = 'var(--color-primary-dark)';
+
+        bannerRouteDetail.textContent = `${routeText} (${vehicleText.split('(')[0].trim()} - ${seatText}, ${durationText.split('(')[0].trim()}, ${quantity} xe)`;
+        bannerTotalAmount.textContent = formatCurrencyVND(result.totalPrice);
+
+        // Lưu trạng thái hiện tại
+        currentCalculation = {
+          isValid: true,
+          unitPrice: result.unitPrice,
+          totalPrice: result.totalPrice,
+          routeName: routeText,
+          vehicleName: vehicleText.split('(')[0].trim(),
+          seatName: seatText,
+          durationName: durationText.split('(')[0].trim(),
+          quantity: quantity
+        };
+      } else {
+        // Trường hợp không có biểu phí cố định hoặc chọn "Khác"
+        noticeHotlineBox.style.display = 'block';
+        summaryUnitPriceText.textContent = 'Liên hệ Hotline';
+        summaryTotalPriceText.textContent = '1900 996646';
+        summaryTotalPriceText.style.fontSize = '1.4rem';
+        summaryTotalPriceText.style.color = 'var(--color-danger)';
+
+        bannerRouteDetail.textContent = `${routeText} (${vehicleText.split('(')[0].trim()} - ${seatText}, ${durationText.split('(')[0].trim()})`;
+        bannerTotalAmount.textContent = 'Liên hệ Hotline 1900 996646';
+
+        currentCalculation = {
+          isValid: false,
+          unitPrice: 0,
+          totalPrice: 0,
+          routeName: routeText,
+          vehicleName: vehicleText.split('(')[0].trim(),
+          seatName: seatText,
+          durationName: durationText.split('(')[0].trim(),
+          quantity: quantity
+        };
+      }
+    }
+
+    // 2. LẮNG NGHE SỰ KIỆN ĐỂ TÍNH GIÁ NGAY LẬP TỨC
+    selectRoute.addEventListener('change', updatePricingDisplay);
+    selectVehicle.addEventListener('change', updatePricingDisplay);
+    seatChair.addEventListener('change', updatePricingDisplay);
+    seatSleeper.addEventListener('change', updatePricingDisplay);
+    selectDuration.addEventListener('change', updatePricingDisplay);
+
+    // Tăng giảm số lượng xe bằng nút bấm
+    btnMinusQty.addEventListener('click', function() {
+      let val = parseInt(inputQuantity.value, 10) || 1;
+      if (val > 1) {
+        inputQuantity.value = val - 1;
+        updatePricingDisplay();
+      }
+    });
+
+    btnPlusQty.addEventListener('click', function() {
+      let val = parseInt(inputQuantity.value, 10) || 1;
+      if (val < 10) {
+        inputQuantity.value = val + 1;
+        updatePricingDisplay();
+      }
+    });
+
+    // 3. NÚT "ĐẶT XE NGAY THEO BÁO GIÁ NÀY" -> CUỘN XUỐNG FORM ĐẶT XE
+    document.getElementById('btnScrollToBooking').addEventListener('click', function() {
+      const bookingSec = document.getElementById('booking');
+      bookingSec.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('custName').focus();
+    });
+
+    // 4. HÀM CHỌN NHANH DÒNG XE TỪ MỤC "ĐỘI XE SG FUTA TRAVEL"
+    function selectFleetVehicle(vehicleVal, seatVal) {
+      selectVehicle.value = vehicleVal;
+      if (seatVal === 'sleeper') {
+        seatSleeper.checked = true;
+      } else {
+        seatChair.checked = true;
+      }
+      updatePricingDisplay();
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Chọn nhanh tuyến đường từ chân trang Footer
+    function quickSelectRoute(routeVal) {
+      selectRoute.value = routeVal;
+      updatePricingDisplay();
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 5. XỬ LÝ SUBMIT FORM ĐẶT XE & HIỂN THỊ MODAL THÀNH CÔNG
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const date = document.getElementById('custDate').value;
+      const pickup = document.getElementById('custPickup').value.trim();
+
+      if (!name || !phone || !date || !pickup) {
+        alert('Vui lòng điền đầy đủ các trường thông tin bắt buộc (*)!');
+        return;
+      }
+
+      // Tạo mã đơn ngẫu nhiên (Ví dụ: FUTA-84920)
+      const randomCode = 'FUTA-' + Math.floor(10000 + Math.random() * 90000);
+
+      // Điền thông tin vào Modal Popup
+      document.getElementById('modalCode').textContent = randomCode;
+      document.getElementById('modalName').textContent = name;
+      document.getElementById('modalPhone').textContent = phone;
+      document.getElementById('modalRoute').textContent = currentCalculation.routeName;
+      document.getElementById('modalVehicle').textContent = `${currentCalculation.vehicleName} (${currentCalculation.seatName})`;
+      document.getElementById('modalDuration').textContent = currentCalculation.durationName;
+      document.getElementById('modalQty').textContent = (currentCalculation.quantity < 10 ? '0' + currentCalculation.quantity : currentCalculation.quantity) + ' xe';
+      document.getElementById('modalDate').textContent = date;
+      document.getElementById('modalPrice').textContent = currentCalculation.isValid ? formatCurrencyVND(currentCalculation.totalPrice) : 'Liên hệ Hotline 1900 996646';
+
+      // Mở modal
+      bookingModal.style.display = 'flex';
+    }
+
+    // Đóng Modal
+    function closeBookingModal() {
+      bookingModal.style.display = 'none';
+      document.getElementById('bookingOrderForm').reset();
+      // Khôi phục ngày mặc định
+      setDefaultDate();
+    }
+
+    // Đóng modal khi bấm vào nền mờ bên ngoài
+    function handleBackdropClick(e) {
+      if (e.target === bookingModal) {
+        closeBookingModal();
+      }
+    }
+
+    // Gán ngày đi mặc định là ngày mai
+    function setDefaultDate() {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const yyyy = tomorrow.getFullYear();
+      const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const dd = String(tomorrow.getDate()).padStart(2, '0');
+      custDateInput.value = `${yyyy}-${mm}-${dd}`;
+      custDateInput.min = `${yyyy}-${mm}-${dd}`;
+    }
+
+    // KHỞI CHẠY LẦN ĐẦU KHI TRANG TẢI XONG
+    window.addEventListener('DOMContentLoaded', () => {
+      setDefaultDate();
+      updatePricingDisplay();
+    });
+  </script>
+</body>
+</html>

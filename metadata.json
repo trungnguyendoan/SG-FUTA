@@ -1,0 +1,7 @@
+{
+  "name": "SG FUTA Travel - Cho Thuê Xe Du Lịch",
+  "description": "Dịch vụ cho thuê xe du lịch 9 - 45 chỗ kèm tài xế riêng, bảng tra cứu giá vé tự động và đặt xe trực tuyến SG FUTA Travel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
